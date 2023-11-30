@@ -1,0 +1,266 @@
+$scissorsGradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+$paperGradinat: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+$rockGradinat: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+$backgroundColor: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+$darkText: hsl(229, 25%, 31%);
+$scoreText: hsl(229, 64%, 46%);
+$headerOutLine: hsl(217, 16%, 45%);
+
+//closing the overlay and rules class
+.open {
+  & ~ .box,
+  & ~ .overlay {
+    display: block !important;
+  }
+}
+.close {
+  & ~ .box,
+  & ~ .overlay {
+    display: none !important;
+  }
+}
+
+@mixin whiteBackground {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  background: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -2;
+  box-shadow: inset 0px 5px 1px 0px #c3bfcf;
+}
+
+@mixin linearBackground($linearColor, $shadwoColor) {
+  position: absolute;
+  width: 155px;
+  height: 155px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -3;
+  box-shadow: 0px 5px 0px 1px $shadwoColor;
+  background: linear-gradient($linearColor);
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  text-transform: uppercase;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.game {
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 10px;
+  background: linear-gradient(to bottom, $backgroundColor);
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.572);
+    left: 0;
+    top: 0;
+    z-index: 5;
+    display: none;
+  }
+
+  header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    border: 2px solid rgba(255, 255, 255, 0.324);
+    border-radius: 10px;
+    margin: 30px auto;
+    .score {
+      background-color: white;
+      padding: 10px 40px;
+      text-align: center;
+      border-radius: 5px;
+      color: $scoreText;
+      letter-spacing: 2px;
+      font-weight: 100;
+      text-transform: uppercase;
+      font-size: 12px;
+      span {
+        display: block;
+        font-size: 50px;
+        color: hsl(229, 25%, 31%);
+        letter-spacing: initial;
+        font-weight: bold;
+        margin-top: -4px;
+      }
+    }
+  }
+
+  .playground {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    .traingle {
+      position: relative;
+      margin-top: 100px;
+    }
+    .paper {
+      cursor: pointer;
+      left: 0;
+      top: 60px;
+      border-radius: 50%;
+      padding: 20px;
+      position: absolute;
+      width: 93px;
+      z-index: 1;
+      padding-right: 80px;
+      img {
+        width: 50px;
+      }
+      .white {
+        @include whiteBackground();
+      }
+      .linear {
+        @include linearBackground($paperGradinat, #2b43c0);
+      }
+    }
+    .scissors {
+      cursor: pointer;
+      padding: 21px;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      top: 60px;
+      z-index: 1;
+      img {
+        width: 50px;
+      }
+      .white {
+        @include whiteBackground();
+      }
+      .linear {
+        @include linearBackground($scissorsGradient, #c36d1c);
+      }
+    }
+    .rock {
+      cursor: pointer;
+      padding: 26px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      img {
+        width: 50px;
+      }
+      .white {
+        @include whiteBackground();
+      }
+      .linear {
+        @include linearBackground($rockGradinat, #a11530);
+      }
+    }
+
+    .comapring {
+      display: flex;
+      width: 500px;
+      justify-content: space-around;
+      color: white;
+      letter-spacing: 2.8px;
+      margin-top: 50px;
+      gap: 60px;
+      font-size: 20px;
+      .the-choice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+      .person-choice {
+        .the-choice {
+          position: relative;
+          top: 80px;
+          z-index: 1;
+          .white {
+            @include whiteBackground();
+          }
+          .linear {
+            @include linearBackground($rockGradinat, #a11530);
+          }
+        }
+      }
+      .computer-choice {
+        .the-choice {
+          position: relative;
+          top: 45px;
+          z-index: 1;
+          width: 130px;
+          height: 130px;
+          background-color: #1f2c51;
+          border-radius: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  .rules {
+    color: white;
+    width: fit-content;
+    padding: 5px 25px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.517);
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1.7px;
+  }
+
+  .box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 5px;
+    color: $darkText;
+    z-index: 10;
+    display: none;
+    > img {
+      width: 250px;
+    }
+    cursor: auto;
+    .exit-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      .exit {
+        cursor: pointer;
+      }
+    }
+  }
+}
