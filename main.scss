@@ -109,6 +109,17 @@ ul {
       }
     }
   }
+  .paper-linear {
+    @include linearBackground($paperGradinat, #2b43c0);
+  }
+
+  .scissors-linear {
+    @include linearBackground($scissorsGradient, #c36d1c);
+  }
+
+  .rock-linear {
+    @include linearBackground($rockGradinat, #a11530);
+  }
 
   .playground {
     position: relative;
@@ -134,9 +145,6 @@ ul {
       .white {
         @include whiteBackground();
       }
-      .linear {
-        @include linearBackground($paperGradinat, #2b43c0);
-      }
     }
     .scissors {
       cursor: pointer;
@@ -151,9 +159,6 @@ ul {
       }
       .white {
         @include whiteBackground();
-      }
-      .linear {
-        @include linearBackground($scissorsGradient, #c36d1c);
       }
     }
     .rock {
@@ -170,9 +175,6 @@ ul {
       }
       .white {
         @include whiteBackground();
-      }
-      .linear {
-        @include linearBackground($rockGradinat, #a11530);
       }
     }
 
