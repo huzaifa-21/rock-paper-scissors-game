@@ -3,7 +3,7 @@ let rules = document.querySelector(".rules");
 let overlay = document.querySelector(".overlay");
 let exit = document.querySelector(".exit");
 let playGround = document.querySelector(".playground");
-
+let computer = document.querySelector(".computer-choice");
 
 // select choices 
 let rock = document.querySelector(".rock");
@@ -34,7 +34,7 @@ function step2(theChoice) {
   playGround.innerHTML = `<div class="comapring">
         <div class="person-choice">
           you picked
-          <div class="the-choice">
+          <div class="the-choice" data-person="${name}" >
             <img src="images/icon-${name}.svg" alt="">
             <div class="white"></div>
             <div class="${name}-linear"></div>
@@ -47,4 +47,28 @@ function step2(theChoice) {
         </div>
       </div>`;
   console.log(name);
+  setTimeout(() => {
+    step3();
+  }, 1000);
 }
+
+function step3() {
+  let computer = document.querySelector(".computer-choice");
+  let computerChoices = [{ name: "paper", img: "paper img" },
+  { name: "rock", img: "rock img" },
+  { name: "scissors", img: "scissors img" }];
+
+  let randomChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+  computer.innerHTML = ` the house picked
+          <div class="the-choice fixing" data-computer="${randomChoice.name}">
+            <img src="images/icon-${randomChoice.name}.svg" alt="">
+            <div class="white"></div>
+            <div class="${randomChoice.name}-linear"></div>
+          </div>`;
+  console.log(randomChoice);
+};
+
+// console.log(rock.img);
+// console.log(paper);
+// console.log(scissors);
