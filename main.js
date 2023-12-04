@@ -34,7 +34,7 @@ function step2(theChoice) {
   playGround.innerHTML = `<div class="comapring">
         <div class="person-choice">
           you picked
-          <div class="the-choice" data-person="${name}" >
+          <div class="the-choice" data-choice="${name}" >
             <img src="images/icon-${name}.svg" alt="">
             <div class="white"></div>
             <div class="${name}-linear"></div>
@@ -42,8 +42,6 @@ function step2(theChoice) {
         </div>
         <div class="computer-choice">
           the house picked
-          <div class="the-choice">
-          </div>
         </div>
       </div>`;
   console.log(name);
@@ -61,7 +59,7 @@ function step3() {
   let randomChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
   computer.innerHTML = ` the house picked
-          <div class="the-choice fixing" data-computer="${randomChoice.name}">
+          <div class="the-choice fixing" data-choice="${randomChoice.name}">
             <img src="images/icon-${randomChoice.name}.svg" alt="">
             <div class="white"></div>
             <div class="${randomChoice.name}-linear"></div>

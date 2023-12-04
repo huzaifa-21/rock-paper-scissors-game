@@ -17,6 +17,7 @@
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
   text-transform: uppercase;
+  text-wrap: nowrap;
 }
 
 ul {
@@ -146,7 +147,7 @@ ul {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
-  box-shadow: inset 0px 5px 1px 0px #c3bfcf;
+  box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
 }
 .game .playground .scissors {
   cursor: pointer;
@@ -170,7 +171,7 @@ ul {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
-  box-shadow: inset 0px 5px 1px 0px #c3bfcf;
+  box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
 }
 .game .playground .rock {
   cursor: pointer;
@@ -195,11 +196,11 @@ ul {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
-  box-shadow: inset 0px 5px 1px 0px #c3bfcf;
+  box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
 }
 .game .playground .comapring {
   display: flex;
-  width: 500px;
+  width: 800px;
   justify-content: space-around;
   color: white;
   letter-spacing: 2.8px;
@@ -207,9 +208,21 @@ ul {
   gap: 60px;
   font-size: 20px;
 }
+.game .playground .comapring .rock-linear {
+  width: 230px;
+  height: 230px;
+}
+.game .playground .comapring .paper-linear {
+  width: 230px;
+  height: 230px;
+}
+.game .playground .comapring .scissors-linear {
+  width: 230px;
+  height: 230px;
+}
 .game .playground .comapring img {
-  width: 50px;
-  height: 54px;
+  width: 70px;
+  height: 74px;
 }
 .game .playground .comapring .the-choice {
   display: flex;
@@ -232,7 +245,21 @@ ul {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
-  box-shadow: inset 0px 5px 1px 0px #c3bfcf;
+  box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
+  width: 175px;
+  height: 175px;
+}
+.game .playground .comapring .computer-choice .rock-linear {
+  width: 230px;
+  height: 230px;
+}
+.game .playground .comapring .computer-choice .paper-linear {
+  width: 230px;
+  height: 230px;
+}
+.game .playground .comapring .computer-choice .scissors-linear {
+  width: 230px;
+  height: 230px;
 }
 .game .playground .comapring .computer-choice .the-choice {
   position: relative;
@@ -255,7 +282,29 @@ ul {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
-  box-shadow: inset 0px 5px 1px 0px #c3bfcf;
+  box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
+  width: 175px;
+  height: 175px;
+}
+.game .playground .comapring .result {
+  flex: 1%;
+  margin-left: 41px;
+  margin-top: 150px;
+  text-align: center;
+}
+.game .playground .comapring .result .case {
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+}
+.game .playground .comapring .result .play {
+  color: hsl(229, 25%, 31%);
+  background-color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  margin-top: 9px;
+  cursor: pointer;
+  letter-spacing: 0.8px;
 }
 .game .rules {
   color: white;
