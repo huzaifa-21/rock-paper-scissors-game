@@ -11,8 +11,8 @@ let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
 
 //score
-let score = document.querySelector(".score span")
-score.innerHTML = localStorage.getItem("counter")
+let score = document.querySelector(".score span");
+score.innerHTML = localStorage.getItem("counter");
 
 
 rules.onclick = () => { rules.className = "rules open"; };
@@ -27,8 +27,8 @@ scissors.onclick = function () {
 rock.onclick = function () {
   step2(rock);
 };
-// step2(rock);
-// choices destructring 
+
+
 let [paperImg, scissorsImg, rockImg] = ["images/icon-paper.svg", "images/icon-scissors.svg", "images/icon-rock.svg"];
 
 
@@ -37,11 +37,12 @@ function step2(theChoice) {
   let name = theChoice.getAttribute("data-name");
   playGround.innerHTML = `<div class="comapring">
         <div class="person-choice">
-          you picked
+          <span>you picked</span>
           <div class="the-choice" data-choice="${name}" >
             <img src="images/icon-${name}.svg" alt="">
             <div class="white"></div>
             <div class="${name}-linear"></div>
+            <div class="circle"></div>
           </div>
         </div>
         <div class="result">
@@ -61,7 +62,7 @@ function step2(theChoice) {
 
     comparing(personChoice, computerChoice);
 
-  }, 2000);
+  }, 1550);
 
 }
 
@@ -73,13 +74,13 @@ function computerChoice() {
 
   let randomChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-  computer.innerHTML = ` the house picked
+  computer.innerHTML = ` <span>the house picked</span>
           <div class="the-choice fixing" data-choice="${randomChoice.name}">
             <img src="images/icon-${randomChoice.name}.svg" alt="">
             <div class="white"></div>
             <div class="${randomChoice.name}-linear"></div>
+            <div class="circle"></div>
           </div>`;
-  console.log(randomChoice);
 };
 
 function comparing(personChoice, computerChoice) {
@@ -121,22 +122,33 @@ function youWin() {
   let againButton = document.querySelector(".play");
   againButton.onclick = () => { playAgain(); };
   ++score.innerHTML;
-  localStorage.setItem("counter", score.innerHTML)
+  let personChoiceCircle = document.querySelector(".person-choice .circle");
+  personChoiceCircle.style.opacity = "1";
+  result.style.width = "300px";
+  result.style.marginLeft = "41px";
+  localStorage.setItem("counter", score.innerHTML);
 }
 
 function youLost() {
   let result = document.querySelector(".result");
+  result.setAttribute("data-winner", "computer");
   result.innerHTML = `<div class="case">you <span class="status">lost</span> </div>
           <div class="play">play again</div>`;
   let againButton = document.querySelector(".play");
   againButton.onclick = () => { playAgain(); };
-  --score.innerHTML
-  localStorage.setItem("counter", score.innerHTML)
+  if (score.innerHTML > 0) { --score.innerHTML; };
+  let computerChoiceCircle = document.querySelector(".computer-choice .circle");
+  computerChoiceCircle.style.opacity = "1";
+  result.style.width = "300px";
+  result.style.marginLeft = "41px";
+  localStorage.setItem("counter", score.innerHTML);
 }
 
 function draw() {
   let result = document.querySelector(".result");
   result.innerHTML = `<div class="case"><span class="status">draw</span> </div>`;
+  result.style.width = "300px";
+  result.style.marginLeft = "41px";
   setTimeout(() => { playAgain(); }, 2000);
 }
 
@@ -172,7 +184,3 @@ function playAgain() {
     step2(rock);
   };
 }
-
-// console.log(rock.img);
-// console.log(paper);
-// console.log(scissors);
