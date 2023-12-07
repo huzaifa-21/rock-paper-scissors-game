@@ -20,6 +20,36 @@ $headerOutLine: hsl(217, 16%, 45%);
   }
 }
 
+/*this class to create circles around the winner */
+.circle {
+  @extend %center;
+  position: absolute;
+  width: 470px;
+  height: 470px;
+  background-color: #2a335240;
+  z-index: -4;
+  border-radius: 50%;
+  &::before,
+  &::after {
+    @extend %center;
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+  }
+  &::before {
+    background-color: #2a335274;
+    z-index: -7;
+    width: 380px;
+    height: 380px;
+  }
+  &::after {
+    background-color: #2a3352;
+    z-index: -6;
+    width: 300px;
+    height: 300px;
+  }
+}
+
 /* this class to fix the computer choice design  */
 .fixing {
   top: 76px !important;
@@ -33,21 +63,17 @@ $headerOutLine: hsl(217, 16%, 45%);
   width: 125px;
   height: 125px;
   background: white;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px #c3bfcfb3;
+  @extend %center;
 }
 
 @mixin linearBackground($linearColor, $shadwoColor) {
   position: absolute;
   width: 155px;
   height: 155px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  @extend %center;
   border-radius: 50%;
   z-index: -3;
   box-shadow: 0px 5px 0px 1px $shadwoColor;
@@ -131,10 +157,16 @@ ul {
     @include linearBackground($rockGradinat, #a11530);
   }
 
+  %center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .playground {
     position: relative;
     width: fit-content;
     margin: auto;
+    transition-duration: .5s;
     .traingle {
       position: relative;
       margin-top: 100px;
@@ -211,7 +243,7 @@ ul {
       }
       img {
         width: 70px;
-        height: 74px;
+        height: 80px;
       }
       .the-choice {
         display: flex;
@@ -220,6 +252,13 @@ ul {
         margin-top: 50px;
       }
       .person-choice {
+        .circle {
+          display: none;
+        }
+        >span {
+          position: relative;
+          z-index: 10;
+        }
         margin-left: 25px;
         .the-choice {
           position: relative;
@@ -233,6 +272,13 @@ ul {
         }
       }
       .computer-choice {
+        .circle {
+          display: initial;
+        }
+        > span {
+          position: relative;
+          z-index: 10;
+        }
         .rock-linear {
           width: 230px;
           height: 230px;
@@ -249,8 +295,8 @@ ul {
           position: relative;
           top: 45px;
           z-index: 1;
-          width: 130px;
-          height: 130px;
+          width: 160px;
+          height: 160px;
           background-color: #1f2c51;
           border-radius: 50%;
           left: 50%;
@@ -263,10 +309,13 @@ ul {
         }
       }
       .result {
+        position: relative;
+        z-index: 10;
         flex: 1%;
         margin-left: 41px;
         margin-top: 150px;
         text-align: center;
+        transition-duration: 1s;
         .case {
           font-size: 50px;
           font-weight: bold;
@@ -328,4 +377,9 @@ ul {
       }
     }
   }
+}
+
+/*animations section */
+@keyframes blinkingCircles {
+
 }

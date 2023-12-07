@@ -6,6 +6,33 @@
   display: none !important;
 }
 
+/*this class to create circles around the winner */
+.circle {
+  position: absolute;
+  width: 470px;
+  height: 470px;
+  background-color: rgba(42, 51, 82, 0.2509803922);
+  z-index: -4;
+  border-radius: 50%;
+}
+.circle::before, .circle::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+}
+.circle::before {
+  background-color: rgba(42, 51, 82, 0.4549019608);
+  z-index: -7;
+  width: 380px;
+  height: 380px;
+}
+.circle::after {
+  background-color: #2a3352;
+  z-index: -6;
+  width: 300px;
+  height: 300px;
+}
+
 /* this class to fix the computer choice design  */
 .fixing {
   top: 76px !important;
@@ -81,9 +108,6 @@ ul {
   position: absolute;
   width: 155px;
   height: 155px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -3;
   box-shadow: 0px 5px 0px 1px #2b43c0;
@@ -93,9 +117,6 @@ ul {
   position: absolute;
   width: 155px;
   height: 155px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -3;
   box-shadow: 0px 5px 0px 1px #c36d1c;
@@ -105,19 +126,22 @@ ul {
   position: absolute;
   width: 155px;
   height: 155px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -3;
   box-shadow: 0px 5px 0px 1px #a11530;
   background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+.game .playground .comapring .computer-choice .the-choice .white, .game .playground .comapring .person-choice .the-choice .white, .game .playground .rock .white, .game .playground .scissors .white, .game .playground .paper .white, .game .circle, .game .circle::before, .game .circle::after, .game .paper-linear, .game .scissors-linear, .game .rock-linear {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .game .playground {
   position: relative;
   width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  transition-duration: 0.5s;
 }
 .game .playground .traingle {
   position: relative;
@@ -142,9 +166,6 @@ ul {
   width: 125px;
   height: 125px;
   background: white;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
@@ -166,9 +187,6 @@ ul {
   width: 125px;
   height: 125px;
   background: white;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
@@ -191,9 +209,6 @@ ul {
   width: 125px;
   height: 125px;
   background: white;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
@@ -222,13 +237,23 @@ ul {
 }
 .game .playground .comapring img {
   width: 70px;
-  height: 74px;
+  height: 80px;
 }
 .game .playground .comapring .the-choice {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+}
+.game .playground .comapring .person-choice {
+  margin-left: 25px;
+}
+.game .playground .comapring .person-choice .circle {
+  display: none;
+}
+.game .playground .comapring .person-choice > span {
+  position: relative;
+  z-index: 10;
 }
 .game .playground .comapring .person-choice .the-choice {
   position: relative;
@@ -240,14 +265,18 @@ ul {
   width: 125px;
   height: 125px;
   background: white;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
   width: 175px;
   height: 175px;
+}
+.game .playground .comapring .computer-choice .circle {
+  display: initial;
+}
+.game .playground .comapring .computer-choice > span {
+  position: relative;
+  z-index: 10;
 }
 .game .playground .comapring .computer-choice .rock-linear {
   width: 230px;
@@ -265,8 +294,8 @@ ul {
   position: relative;
   top: 45px;
   z-index: 1;
-  width: 130px;
-  height: 130px;
+  width: 160px;
+  height: 160px;
   background-color: #1f2c51;
   border-radius: 50%;
   left: 50%;
@@ -277,9 +306,6 @@ ul {
   width: 125px;
   height: 125px;
   background: white;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
@@ -287,10 +313,13 @@ ul {
   height: 175px;
 }
 .game .playground .comapring .result {
+  position: relative;
+  z-index: 10;
   flex: 1%;
   margin-left: 41px;
   margin-top: 150px;
   text-align: center;
+  transition-duration: 1s;
 }
 .game .playground .comapring .result .case {
   font-size: 50px;
@@ -348,4 +377,7 @@ ul {
 }
 .game .box .exit-box .exit {
   cursor: pointer;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*animations section */
+@keyframes blinkingCircles {}/*# sourceMappingURL=main.css.map */
