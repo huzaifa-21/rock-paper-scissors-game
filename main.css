@@ -16,6 +16,12 @@
   border-radius: 50%;
   transition-duration: 1.4s;
 }
+@media (max-width: 600px) {
+  .circle {
+    width: 270px;
+    height: 270px;
+  }
+}
 .circle::before, .circle::after {
   position: absolute;
   content: "";
@@ -27,11 +33,23 @@
   width: 380px;
   height: 380px;
 }
+@media (max-width: 600px) {
+  .circle::before {
+    width: 230px;
+    height: 230px;
+  }
+}
 .circle::after {
   background-color: #30375d;
   z-index: -6;
   width: 300px;
   height: 300px;
+}
+@media (max-width: 600px) {
+  .circle::after {
+    width: 170px;
+    height: 170px;
+  }
 }
 
 /* this class to fix the computer choice design  */
@@ -86,6 +104,16 @@ ul {
   border-radius: 10px;
   margin: 30px auto;
 }
+@media (max-width: 600px) {
+  .game header {
+    width: 350px;
+  }
+}
+@media (max-width: 600px) {
+  .game header .logo img {
+    width: 110px;
+  }
+}
 .game header .score {
   background-color: white;
   padding: 10px 40px;
@@ -96,6 +124,11 @@ ul {
   font-weight: 100;
   text-transform: uppercase;
   font-size: 12px;
+}
+@media (max-width: 600px) {
+  .game header .score {
+    padding: 10px 30px;
+  }
 }
 .game header .score span {
   display: block;
@@ -114,6 +147,13 @@ ul {
   box-shadow: 0px 5px 0px 1px #2b43c0;
   background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 }
+@media (max-width: 600px) {
+  .game .paper-linear {
+    width: 130px;
+    height: 130px;
+    box-shadow: 0px 3px 0px 1px #2b43c0;
+  }
+}
 .game .scissors-linear {
   position: absolute;
   width: 155px;
@@ -123,6 +163,13 @@ ul {
   box-shadow: 0px 5px 0px 1px #c36d1c;
   background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 }
+@media (max-width: 600px) {
+  .game .scissors-linear {
+    width: 130px;
+    height: 130px;
+    box-shadow: 0px 3px 0px 1px #c36d1c;
+  }
+}
 .game .rock-linear {
   position: absolute;
   width: 155px;
@@ -131,6 +178,13 @@ ul {
   z-index: -3;
   box-shadow: 0px 5px 0px 1px #a11530;
   background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+@media (max-width: 600px) {
+  .game .rock-linear {
+    width: 130px;
+    height: 130px;
+    box-shadow: 0px 3px 0px 1px #a11530;
+  }
 }
 .game .playground .comapring .computer-choice .the-choice .white, .game .playground .comapring .person-choice .the-choice .white, .game .playground .rock .white, .game .playground .scissors .white, .game .playground .paper .white, .game .circle, .game .circle::before, .game .circle::after, .game .paper-linear, .game .scissors-linear, .game .rock-linear {
   top: 50%;
@@ -144,9 +198,20 @@ ul {
   margin: auto;
   transition-duration: 0.5s;
 }
+@media (max-width: 600px) {
+  .game .playground img:not(.traingle) {
+    width: 50px !important;
+    height: 49px !important;
+  }
+}
 .game .playground .traingle {
   position: relative;
   margin-top: 100px;
+}
+@media (max-width: 600px) {
+  .game .playground .traingle {
+    width: 270px;
+  }
 }
 .game .playground .paper {
   cursor: pointer;
@@ -171,6 +236,13 @@ ul {
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
 }
+@media (max-width: 600px) {
+  .game .playground .paper .white {
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0px 5px 1px 0px rgba(195, 191, 207, 0.7019607843);
+  }
+}
 .game .playground .scissors {
   cursor: pointer;
   padding: 21px;
@@ -191,6 +263,13 @@ ul {
   border-radius: 50%;
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
+}
+@media (max-width: 600px) {
+  .game .playground .scissors .white {
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0px 5px 1px 0px rgba(195, 191, 207, 0.7019607843);
+  }
 }
 .game .playground .rock {
   cursor: pointer;
@@ -214,6 +293,13 @@ ul {
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px rgba(195, 191, 207, 0.7019607843);
 }
+@media (max-width: 600px) {
+  .game .playground .rock .white {
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0px 5px 1px 0px rgba(195, 191, 207, 0.7019607843);
+  }
+}
 .game .playground .comapring {
   display: flex;
   width: 800px;
@@ -225,17 +311,45 @@ ul {
   font-size: 20px;
   transition-duration: 1s;
 }
+@media (max-width: 600px) {
+  .game .playground .comapring {
+    justify-content: initial;
+    gap: 98px;
+    padding-left: 8px;
+  }
+  .game .playground .comapring .the-choice {
+    margin: 0 !important;
+  }
+}
 .game .playground .comapring .rock-linear {
   width: 230px;
   height: 230px;
+}
+@media (max-width: 600px) {
+  .game .playground .comapring .rock-linear {
+    width: 130px !important;
+    height: 130px !important;
+  }
 }
 .game .playground .comapring .paper-linear {
   width: 230px;
   height: 230px;
 }
+@media (max-width: 600px) {
+  .game .playground .comapring .paper-linear {
+    width: 130px !important;
+    height: 130px !important;
+  }
+}
 .game .playground .comapring .scissors-linear {
   width: 230px;
   height: 230px;
+}
+@media (max-width: 600px) {
+  .game .playground .comapring .scissors-linear {
+    width: 130px !important;
+    height: 130px !important;
+  }
 }
 .game .playground .comapring img {
   width: 70px;
@@ -256,6 +370,12 @@ ul {
 .game .playground .comapring .person-choice > span {
   position: relative;
   z-index: 10;
+  font-size: 13px;
+}
+@media (max-width: 600px) {
+  .game .playground .comapring .person-choice > span {
+    bottom: -216px;
+  }
 }
 .game .playground .comapring .person-choice .the-choice {
   position: relative;
@@ -273,12 +393,25 @@ ul {
   width: 175px;
   height: 175px;
 }
+@media (max-width: 600px) {
+  .game .playground .comapring .person-choice .the-choice .white {
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0px 5px 1px 0px rgba(195, 191, 207, 0.7019607843);
+  }
+}
 .game .playground .comapring .computer-choice .circle {
   opacity: 0;
 }
 .game .playground .comapring .computer-choice > span {
   position: relative;
   z-index: 10;
+}
+@media (max-width: 600px) {
+  .game .playground .comapring .computer-choice > span {
+    bottom: -216px !important;
+    font-size: 13px;
+  }
 }
 .game .playground .comapring .computer-choice .rock-linear {
   width: 230px;
@@ -303,6 +436,13 @@ ul {
   left: 50%;
   transform: translateX(-50%);
 }
+@media (max-width: 600px) {
+  .game .playground .comapring .computer-choice .the-choice {
+    top: 50px;
+    width: 110px;
+    height: 110px;
+  }
+}
 .game .playground .comapring .computer-choice .the-choice .white {
   position: absolute;
   width: 125px;
@@ -314,6 +454,13 @@ ul {
   width: 175px;
   height: 175px;
 }
+@media (max-width: 600px) {
+  .game .playground .comapring .computer-choice .the-choice .white {
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0px 5px 1px 0px rgba(195, 191, 207, 0.7019607843);
+  }
+}
 .game .playground .comapring .result {
   position: relative;
   z-index: 10;
@@ -323,6 +470,14 @@ ul {
   margin-top: 150px;
   text-align: center;
   transition-duration: 1s;
+}
+@media (max-width: 600px) {
+  .game .playground .comapring .result {
+    position: absolute !important;
+    bottom: -350px !important;
+    left: 46px !important;
+    margin: 0 !important;
+  }
 }
 .game .playground .comapring .result .case {
   font-size: 50px;
@@ -351,6 +506,11 @@ ul {
   border-radius: 5px;
   cursor: pointer;
   letter-spacing: 1.7px;
+}
+@media (max-width: 600px) {
+  .game .rules {
+    bottom: 40px;
+  }
 }
 .game .box {
   position: absolute;

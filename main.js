@@ -52,7 +52,7 @@ function step2(theChoice) {
         <div class="result">
         </div>
         <div class="computer-choice">
-          the house picked
+          <span>the house picked</span>
           <div class = "the-choice" ></div>
         </div>
       </div>`;

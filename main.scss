@@ -30,6 +30,10 @@ $headerOutLine: hsl(217, 16%, 45%);
   z-index: -4;
   border-radius: 50%;
   transition-duration: 1.4s;
+  @media (max-width: 600px) {
+    width: 270px;
+    height: 270px;
+  }
   &::before,
   &::after {
     @extend %center;
@@ -42,12 +46,20 @@ $headerOutLine: hsl(217, 16%, 45%);
     z-index: -7;
     width: 380px;
     height: 380px;
+    @media (max-width: 600px) {
+      width: 230px;
+      height: 230px;
+    }
   }
   &::after {
     background-color: #30375d;
     z-index: -6;
     width: 300px;
     height: 300px;
+    @media (max-width: 600px) {
+      width: 170px;
+      height: 170px;
+    }
   }
 }
 
@@ -68,6 +80,11 @@ $headerOutLine: hsl(217, 16%, 45%);
   z-index: -2;
   box-shadow: inset 0px 7px 1px 0px #c3bfcfb3;
   @extend %center;
+  @media (max-width: 600px) {
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0px 5px 1px 0px #c3bfcfb3;
+  }
 }
 
 @mixin linearBackground($linearColor, $shadwoColor) {
@@ -79,6 +96,11 @@ $headerOutLine: hsl(217, 16%, 45%);
   z-index: -3;
   box-shadow: 0px 5px 0px 1px $shadwoColor;
   background: linear-gradient($linearColor);
+  @media (max-width: 600px) {
+    width: 130px;
+    height: 130px;
+    box-shadow: 0px 3px 0px 1px $shadwoColor;
+  }
 }
 
 body {
@@ -125,6 +147,16 @@ ul {
     border: 2px solid rgba(255, 255, 255, 0.324);
     border-radius: 10px;
     margin: 30px auto;
+    @media (max-width: 600px) {
+      width: 350px;
+    }
+    .logo {
+      img {
+        @media (max-width: 600px) {
+          width: 110px;
+        }
+      }
+    }
     .score {
       background-color: white;
       padding: 10px 40px;
@@ -135,6 +167,9 @@ ul {
       font-weight: 100;
       text-transform: uppercase;
       font-size: 12px;
+      @media (max-width: 600px) {
+        padding: 10px 30px;
+      }
       span {
         display: block;
         font-size: 50px;
@@ -168,9 +203,18 @@ ul {
     width: fit-content;
     margin: auto;
     transition-duration: 0.5s;
+    @media (max-width: 600px) {
+      img:not(.traingle) {
+        width: 50px !important;
+        height: 49px !important;
+      }
+    }
     .traingle {
       position: relative;
       margin-top: 100px;
+      @media (max-width: 600px) {
+        width: 270px;
+      }
     }
     .paper {
       cursor: pointer;
@@ -231,17 +275,37 @@ ul {
       gap: 60px;
       font-size: 20px;
       transition-duration: 1s;
+      @media (max-width: 600px) {
+        justify-content: initial;
+        gap: 98px;
+        padding-left: 8px;
+        .the-choice {
+          margin: 0 !important;
+        }
+      }
       .rock-linear {
         width: 230px;
         height: 230px;
+        @media (max-width: 600px) {
+          width: 130px !important;
+          height: 130px !important;
+        }
       }
       .paper-linear {
         width: 230px;
         height: 230px;
+        @media (max-width: 600px) {
+          width: 130px !important;
+          height: 130px !important;
+        }
       }
       .scissors-linear {
         width: 230px;
         height: 230px;
+        @media (max-width: 600px) {
+          width: 130px !important;
+          height: 130px !important;
+        }
       }
       img {
         width: 70px;
@@ -260,6 +324,10 @@ ul {
         > span {
           position: relative;
           z-index: 10;
+          font-size: 13px;
+          @media (max-width: 600px) {
+            bottom: -216px;
+          }
         }
         margin-left: 25px;
         .the-choice {
@@ -280,6 +348,10 @@ ul {
         > span {
           position: relative;
           z-index: 10;
+          @media (max-width: 600px) {
+            bottom: -216px !important;
+            font-size: 13px;
+          }
         }
         .rock-linear {
           width: 230px;
@@ -303,6 +375,11 @@ ul {
           border-radius: 50%;
           left: 50%;
           transform: translateX(-50%);
+          @media (max-width: 600px) {
+            top: 50px;
+            width: 110px;
+            height: 110px;
+          }
           .white {
             @include whiteBackground();
             width: 175px;
@@ -319,6 +396,12 @@ ul {
         margin-top: 150px;
         text-align: center;
         transition-duration: 1s;
+        @media (max-width: 600px) {
+          position: absolute !important;
+          bottom: -350px !important;
+          left: 46px !important;
+          margin: 0 !important;
+        }
         .case {
           font-size: 50px;
           font-weight: bold;
@@ -349,6 +432,9 @@ ul {
     border-radius: 5px;
     cursor: pointer;
     letter-spacing: 1.7px;
+    @media (max-width: 600px) {
+      bottom: 40px;
+    }
   }
 
   .box {

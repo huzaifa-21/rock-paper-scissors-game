@@ -46,7 +46,7 @@ function step2(theChoice) {
       )
       .concat(
         name,
-        '-linear"></div>\n            <div class="circle"></div>\n          </div>\n        </div>\n        <div class="result">\n        </div>\n        <div class="computer-choice">\n          the house picked\n          <div class = "the-choice" ></div>\n        </div>\n      </div>'
+        '-linear"></div>\n            <div class="circle"></div>\n          </div>\n        </div>\n        <div class="result">\n        </div>\n        <div class="computer-choice">\n          <span>the house picked</span>\n          <div class = "the-choice" ></div>\n        </div>\n      </div>'
       );
   setTimeout(function () {
     computerChoice();
