@@ -15,6 +15,10 @@ let score = document.querySelector(".score span");
 score.innerHTML = localStorage.getItem("counter");
 
 
+// select music 
+let impact = document.querySelector(".impact");
+
+
 rules.onclick = () => { rules.className = "rules open"; };
 exit.onclick = () => { rules.className = "rules close"; };
 
@@ -33,7 +37,7 @@ let [paperImg, scissorsImg, rockImg] = ["images/icon-paper.svg", "images/icon-sc
 
 
 function step2(theChoice) {
-
+  impact.play();
   let name = theChoice.getAttribute("data-name");
   playGround.innerHTML = `<div class="comapring">
         <div class="person-choice">
@@ -52,6 +56,7 @@ function step2(theChoice) {
           <div class = "the-choice" ></div>
         </div>
       </div>`;
+  
   setTimeout(() => {
     computerChoice();
   }, 1000);
@@ -59,9 +64,7 @@ function step2(theChoice) {
   setTimeout(() => {
     let personChoice = document.querySelector(".person-choice .the-choice").getAttribute("data-choice");
     let computerChoice = document.querySelector(".computer-choice .the-choice").getAttribute("data-choice");
-
     comparing(personChoice, computerChoice);
-
   }, 1550);
 
 }
