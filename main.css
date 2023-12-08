@@ -370,10 +370,10 @@ ul {
 .game .playground .comapring .person-choice > span {
   position: relative;
   z-index: 10;
-  font-size: 13px;
 }
 @media (max-width: 600px) {
   .game .playground .comapring .person-choice > span {
+    font-size: 13px;
     bottom: -216px;
   }
 }
