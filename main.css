@@ -63,7 +63,7 @@
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
   text-transform: uppercase;
-  text-wrap: nowrap;
+  text-wrap: nowrap !important;
 }
 
 ul {
