@@ -1,3 +1,8 @@
+* span,
+div {
+  white-space: nowrap;
+}
+
 .open ~ .box, .open ~ .overlay {
   display: block !important;
 }
@@ -8,7 +13,7 @@
 
 /*this class to create circles around the winner */
 .circle {
-  position: absolute;
+  position: absolute !important;
   width: 470px;
   height: 470px;
   background-color: rgba(48, 55, 93, 0.2901960784);
@@ -37,6 +42,7 @@
   .circle::before {
     width: 230px;
     height: 230px;
+    z-index: -100;
   }
 }
 .circle::after {
@@ -319,6 +325,9 @@ ul {
   }
   .game .playground .comapring .the-choice {
     margin: 0 !important;
+  }
+  .game .playground .comapring .the-choice .circle {
+    z-index: -100 !important;
   }
 }
 .game .playground .comapring .rock-linear {

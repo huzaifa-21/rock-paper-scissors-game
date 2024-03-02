@@ -7,6 +7,10 @@ $scoreText: hsl(229, 64%, 46%);
 $headerOutLine: hsl(217, 16%, 45%);
 
 //closing the overlay and rules class
+*span,
+div {
+  white-space: nowrap;
+}
 .open {
   & ~ .box,
   & ~ .overlay {
@@ -23,7 +27,7 @@ $headerOutLine: hsl(217, 16%, 45%);
 /*this class to create circles around the winner */
 .circle {
   @extend %center;
-  position: absolute;
+  position: absolute !important;
   width: 470px;
   height: 470px;
   background-color: #30375d4a;
@@ -49,6 +53,7 @@ $headerOutLine: hsl(217, 16%, 45%);
     @media (max-width: 600px) {
       width: 230px;
       height: 230px;
+      z-index: -100;
     }
   }
   &::after {
@@ -281,6 +286,9 @@ ul {
         padding-left: 8px;
         .the-choice {
           margin: 0 !important;
+          .circle {
+            z-index: -100 !important;
+          }
         }
       }
       .rock-linear {
